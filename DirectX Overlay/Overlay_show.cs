@@ -13,18 +13,23 @@ using D3D = Microsoft.DirectX.Direct3D;
 using System.Management;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Permissions;
 
 namespace DirectX_Overlay
 {
-    
+
     // Yürü; hâlâ ne diye oyunda, oynaþtasýn?
-   //Fâtih'in Ýstanbul'u fethettiði yaþtasýn!
+    //Fâtih'in Ýstanbul'u fethettiði yaþtasýn!
     
 
 
 
     public partial class TransparentBorderlessForm : Form
     {
+        public int genislik;
+        public int yükseklik;
+        public string yer;
+        public Boolean graphorlabel;
 
         private Margins marg;
         public PresentParameters presentParams;
@@ -78,9 +83,87 @@ namespace DirectX_Overlay
             InitializeComponent();
         }
 
+
+        class kose
+        {
+          public int xdeger;
+          public int ydeger;
+        }
+
+       
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+
+            if (graphorlabel==true)
+            {
+                label1.Visible = false;
+                label2.Visible = false;
+            }
+            else if (graphorlabel==false)
+            {
+                circularProgressBar1.Visible = false;
+                circularProgressBar2.Visible = false;
+            }
+
+            kose solust = new kose();
+            solust.xdeger = 0;  //1920
+            solust.ydeger = 0;  //1080 
+
+
+            kose sagust = new kose();
+            sagust.xdeger = genislik-200;  //1920
+            sagust.ydeger = 0;  //1080 
+
+
+            kose solalt = new kose();
+            solalt.xdeger = 0;  //1920
+            solalt.ydeger = yükseklik-200;  //1080 
+
+            kose sagalt = new kose();
+            sagalt.xdeger = genislik-200;  //1920
+            sagalt.ydeger = yükseklik - 200;  //1080 
+
+
+            if (yer=="Sol Üst")
+            {
+                panel1.Location = new Point(solust.xdeger, solust.ydeger);
+            }
+
+            else if (yer=="Sað Üst")
+            {
+                panel1.Location = new Point(sagust.xdeger, sagust.ydeger);
+            }
+
+
+            else if (yer == "Sol Alt")
+            {
+                panel1.Location = new Point(solalt.xdeger, solalt.ydeger);
+            }
+
+
+            else if (yer == "Sað Alt")
+            {
+                panel1.Location = new Point(sagalt.xdeger, sagalt.ydeger);
+            }
+
+
+
+
+
+
+
+
+
+
+            //Formun Geniþlik deðeri piksel olarak
+            this.Width =genislik ;
+            //Formun Yükseklik deðeri piksel olarak
+            this.Height = yükseklik;
+
+
+            
+
+
             timer1.Start();
             //timer sayesinde anlýk olarak cpu ve ramin kullaným oranlarýný döndüren fonksiyonlarý tetikliyorum.
 
@@ -153,10 +236,12 @@ namespace DirectX_Overlay
 
                 device.EndScene();
                 device.Present();
+
+              
             }
         }
 
-
+     
         static int Ramdeger;
         //deðerleri fonksiyon dýþýna çýkarýyorum bunlar sayesinde
         static int Cpudeger;
@@ -173,6 +258,7 @@ namespace DirectX_Overlay
             {
                 FreePhysicalMemory = Double.Parse(mo["FreePhysicalMemory"].ToString()),
                 TotalVisibleMemorySize = Double.Parse(mo["TotalVisibleMemorySize"].ToString())
+               
             }).FirstOrDefault();
 
 
@@ -201,6 +287,11 @@ namespace DirectX_Overlay
                     
                 }
             }
+
+
+        
+
+
         }
 
 
@@ -369,6 +460,106 @@ namespace DirectX_Overlay
               Rc();
             label1.Text = Cpudeger.ToString();
             label2.Text = Ramdeger.ToString();
+
+            circularProgressBar1.Value = Cpudeger;
+            circularProgressBar1.Text = Cpudeger.ToString();
+
+            circularProgressBar2.Value = Ramdeger;
+            circularProgressBar2.Text = Ramdeger.ToString();
+
+
+            if (Cpudeger < 50)
+            {
+                circularProgressBar1.ProgressColor = Color.Green;
+              
+            }
+
+            else if (Cpudeger > 51 && Cpudeger < 80)
+            {
+                circularProgressBar1.ProgressColor = Color.Yellow;
+              
+            }
+
+            else if (Cpudeger > 81)
+            {
+                circularProgressBar1.ProgressColor = Color.Red;
+              
+            }
+
+
+            if (Ramdeger < 50)
+            {
+                circularProgressBar2.ProgressColor = Color.Green;
+
+            }
+
+            else if (Ramdeger > 51 && Ramdeger < 80)
+            {
+                circularProgressBar2.ProgressColor = Color.Yellow;
+
+            }
+
+            else if (Ramdeger > 81)
+            {
+                circularProgressBar2.ProgressColor = Color.Red;
+
+            }
+
+
+
+
+
+
+
+            if (Cpudeger < 50)
+            {
+                label1.ForeColor = Color.Green;
+                label4.ForeColor = Color.Green;
+            }
+
+            else if (Cpudeger >51 && Cpudeger<80)
+            {
+                label1.ForeColor = Color.Yellow;
+                label4.ForeColor = Color.Yellow;
+            }
+
+           else if (Cpudeger > 81)
+            {
+                label1.ForeColor = Color.Red;
+                label4.ForeColor = Color.Red;
+            }
+
+
+
+
+            if (Ramdeger < 50)
+            {
+                label3.ForeColor = Color.Green;
+                label2.ForeColor = Color.Green;
+            }
+
+            else if (Ramdeger > 51 && Ramdeger < 80)
+            {
+                label3.ForeColor = Color.Yellow;
+                label2.ForeColor = Color.Yellow;
+            }
+
+            else if (Ramdeger > 81)
+            {
+                label3.ForeColor = Color.Red;
+                label2.ForeColor = Color.Red;
+            }
+
+        }
+       
+
+        private void circularProgressBar2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
 
         }
     }

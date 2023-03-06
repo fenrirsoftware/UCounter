@@ -17,7 +17,7 @@ namespace DirectX_Overlay
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TransparentBorderlessForm());
+            Application.Run(new MainForm());
         }
     }
 }
