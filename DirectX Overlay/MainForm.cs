@@ -77,6 +77,7 @@ namespace DirectX_Overlay
                 checkBox3.Checked = false;
                 labelorgraph = true; //true grafik var demek olsun
                 fr.graphorlabel = labelorgraph;
+
             }
         }
 
