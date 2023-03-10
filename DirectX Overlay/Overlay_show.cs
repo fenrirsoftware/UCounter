@@ -30,7 +30,8 @@ namespace DirectX_Overlay
         public int yükseklik;
         public string yer;
         public Boolean graphorlabel;
-
+        public Boolean cpuvar;
+        public Boolean ramvar;
         private Margins marg;
         public PresentParameters presentParams;
         public Texture texture;
@@ -94,16 +95,91 @@ namespace DirectX_Overlay
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            if (graphorlabel==true)
+
+
+            if (ramvar == true)
             {
-                label1.Visible = false;
-                label2.Visible = false;
+
+                if (graphorlabel == true)
+                {
+                    circularProgressBar1.Visible = true;
+                   
+                    label3.Visible = true;
+                    
+
+                }
+                else if (graphorlabel == false)
+                {
+                    circularProgressBar1.Visible =false;
+                    circularProgressBar2.Visible = false;
+                    label3.Visible = false;
+                    label4.Visible = false;
+                    label2.Visible = true;
+
+                }
+
+
+
             }
-            else if (graphorlabel==false)
+
+            if (cpuvar == true)
             {
-                circularProgressBar1.Visible = false;
-                circularProgressBar2.Visible = false;
+
+                if (graphorlabel == true)
+                {
+                    circularProgressBar2.Visible = true;
+
+                    label4.Visible = true;
+
+
+                }
+                else if (graphorlabel == false)
+                {
+                    circularProgressBar1.Visible = false;
+                    circularProgressBar2.Visible = false;
+                    label3.Visible = false;
+                    label4.Visible = false;
+                    label2.Visible = false;
+
+                    label1.Visible = true;
+
+                }
+
             }
+
+
+
+            if (cpuvar == true && ramvar==true)
+            {
+                if (graphorlabel == true)
+                {
+                    circularProgressBar2.Visible = true;
+                    circularProgressBar1.Visible = true;
+                    label4.Visible = true;
+                    label3.Visible = true;
+
+
+                }
+                else if (graphorlabel == false)
+                {
+                    circularProgressBar1.Visible = false;
+                    circularProgressBar2.Visible = false;
+                    label3.Visible = false;
+                    label4.Visible = false;
+                  
+
+                    label1.Visible = true;
+                    label2.Visible = true;
+
+                }
+            }
+
+
+
+
+           
+
+          
 
             kose solust = new kose();
             solust.xdeger = 0;  //1920
@@ -559,6 +635,16 @@ namespace DirectX_Overlay
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

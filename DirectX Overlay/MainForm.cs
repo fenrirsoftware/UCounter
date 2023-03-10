@@ -22,6 +22,8 @@ namespace DirectX_Overlay
         string yer;
         Boolean labelorgraph;
 
+        Boolean cpvar, ravar;
+
        
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -39,49 +41,12 @@ namespace DirectX_Overlay
 
 
 
-            var scope = new ManagementScope();
-            var query = new ObjectQuery("SELECT * FROM CIM_VideoControllerResolution");
-            List<Resoulution> resolutions = new List<Resoulution>();
-            using (var searcher = new ManagementObjectSearcher(scope, query))
-            {
-                var results = searcher.Get();
-                foreach (var item in results)
-                {
-                    var matches = Regex.Matches(item["Caption"].ToString(), "([0-9]+)");
-                    int.TryParse(matches[0].Value, out int width);
-                    int.TryParse(matches[1].Value, out int height);
-                    resolutions.Add(new Resoulution
-                    {
-                        Width = width,
-                        Height = height
-                    });
-                }
-            }
-            for (int i = 0; i < resolutions.Count; i++)
-            {
-               comboBox1.Items.Add(resolutions[i].Width + " x " + resolutions[i].Height);
-            }
-
-
            
 
 
-
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            comboBox1.Visible = true;
-            label2.Visible = true;
-            label2.Text = "";
-           
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var secilenboyut = comboBox1.SelectedItem;
-            label2.Text = (string)secilenboyut;
-        }
+   
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -152,6 +117,28 @@ namespace DirectX_Overlay
         {
 
        
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                cpvar = true;
+                fr.cpuvar = cpvar;
+            }
+
+           
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked == true)
+            {
+                ravar = true;
+                fr.ramvar = ravar;
+            }
+
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
