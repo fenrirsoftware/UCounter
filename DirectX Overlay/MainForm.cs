@@ -128,6 +128,13 @@ namespace DirectX_Overlay
                 fr.cpuvar = cpvar;
             }
 
+            if (checkBox1.Checked==false)
+            {
+                cpvar = false;
+                fr.cpuvar = cpvar;
+            }
+
+
            
         }
 
@@ -139,7 +146,12 @@ namespace DirectX_Overlay
                 fr.ramvar = ravar;
             }
 
-            
+            if (checkBox2.Checked == false)
+            {
+                ravar = false;
+                fr.ramvar = ravar;
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -120,7 +120,7 @@
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="circularProgressBar1.AnimationFunction" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="CbarCpu.AnimationFunction" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAEdXaW5Gb3JtQW5pbWF0aW9uLCBWZXJzaW9uPTEuMi4wLjAsIEN1
         bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAwDAAAAS21zY29ybGliLCBWZXJzaW9uPTIu
@@ -142,7 +142,7 @@
         LlNpbmdsZSwgU3lzdGVtLlNpbmdsZSwgU3lzdGVtLlNpbmdsZSwgU3lzdGVtLlNpbmdsZSkIAAAACgs=
 </value>
   </data>
-  <data name="circularProgressBar2.AnimationFunction" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="CbarRam.AnimationFunction" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAEdXaW5Gb3JtQW5pbWF0aW9uLCBWZXJzaW9uPTEuMi4wLjAsIEN1
         bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAwDAAAAS21zY29ybGliLCBWZXJzaW9uPTIu

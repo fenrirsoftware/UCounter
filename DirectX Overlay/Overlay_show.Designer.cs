@@ -32,12 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransparentBorderlessForm));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.circularProgressBar2 = new CircularProgressBar.CircularProgressBar();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.circularProgressBar1 = new CircularProgressBar.CircularProgressBar();
+            this.CbarCpu = new CircularProgressBar.CircularProgressBar();
+            this.Rlbl = new System.Windows.Forms.Label();
+            this.CText = new System.Windows.Forms.Label();
+            this.CbarRam = new CircularProgressBar.CircularProgressBar();
+            this.Rtext = new System.Windows.Forms.Label();
+            this.Clbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,145 +48,146 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.circularProgressBar1);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.circularProgressBar2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.CbarCpu);
+            this.panel1.Controls.Add(this.Rlbl);
+            this.panel1.Controls.Add(this.CText);
+            this.panel1.Controls.Add(this.CbarRam);
+            this.panel1.Controls.Add(this.Rtext);
+            this.panel1.Controls.Add(this.Clbl);
             this.panel1.Location = new System.Drawing.Point(12, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(277, 166);
+            this.panel1.Size = new System.Drawing.Size(312, 207);
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // label1
+            // CbarCpu
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Russo One", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(45, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 34);
-            this.label1.TabIndex = 0;
-            this.label1.Text = ":";
-            this.label1.Visible = false;
+            this.CbarCpu.AnimationFunction = ((WinFormAnimation.AnimationFunctions.Function)(resources.GetObject("CbarCpu.AnimationFunction")));
+            this.CbarCpu.AnimationSpeed = 500;
+            this.CbarCpu.BackColor = System.Drawing.Color.Black;
+            this.CbarCpu.Font = new System.Drawing.Font("Russo One", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CbarCpu.ForeColor = System.Drawing.Color.White;
+            this.CbarCpu.InnerColor = System.Drawing.Color.Black;
+            this.CbarCpu.InnerMargin = 2;
+            this.CbarCpu.InnerWidth = -2;
+            this.CbarCpu.Location = new System.Drawing.Point(3, 10);
+            this.CbarCpu.MarqueeAnimationSpeed = 2000;
+            this.CbarCpu.Name = "CbarCpu";
+            this.CbarCpu.OuterColor = System.Drawing.Color.White;
+            this.CbarCpu.OuterMargin = -10;
+            this.CbarCpu.OuterWidth = 10;
+            this.CbarCpu.ProgressColor = System.Drawing.Color.Lime;
+            this.CbarCpu.ProgressWidth = 10;
+            this.CbarCpu.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
+            this.CbarCpu.Size = new System.Drawing.Size(121, 115);
+            this.CbarCpu.StartAngle = 270;
+            this.CbarCpu.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.CbarCpu.SubscriptColor = System.Drawing.Color.Transparent;
+            this.CbarCpu.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
+            this.CbarCpu.SubscriptText = "";
+            this.CbarCpu.SuperscriptColor = System.Drawing.Color.Transparent;
+            this.CbarCpu.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
+            this.CbarCpu.SuperscriptText = "";
+            this.CbarCpu.TabIndex = 0;
+            this.CbarCpu.Text = "%75";
+            this.CbarCpu.TextMargin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.CbarCpu.Value = 75;
+            this.CbarCpu.Visible = false;
             // 
-            // label2
+            // Rlbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Russo One", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(190, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 34);
-            this.label2.TabIndex = 1;
-            this.label2.Text = ":";
-            this.label2.Visible = false;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.Rlbl.AutoSize = true;
+            this.Rlbl.BackColor = System.Drawing.Color.Black;
+            this.Rlbl.Font = new System.Drawing.Font("Russo One", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rlbl.ForeColor = System.Drawing.Color.Black;
+            this.Rlbl.Location = new System.Drawing.Point(206, 164);
+            this.Rlbl.Name = "Rlbl";
+            this.Rlbl.Size = new System.Drawing.Size(83, 34);
+            this.Rlbl.TabIndex = 3;
+            this.Rlbl.Text = "RAM";
+            this.Rlbl.Visible = false;
+            this.Rlbl.Click += new System.EventHandler(this.label3_Click);
             // 
-            // circularProgressBar2
+            // CText
             // 
-            this.circularProgressBar2.AnimationFunction = ((WinFormAnimation.AnimationFunctions.Function)(resources.GetObject("circularProgressBar2.AnimationFunction")));
-            this.circularProgressBar2.AnimationSpeed = 500;
-            this.circularProgressBar2.BackColor = System.Drawing.Color.Black;
-            this.circularProgressBar2.Font = new System.Drawing.Font("Russo One", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.circularProgressBar2.ForeColor = System.Drawing.Color.White;
-            this.circularProgressBar2.InnerColor = System.Drawing.Color.Black;
-            this.circularProgressBar2.InnerMargin = 2;
-            this.circularProgressBar2.InnerWidth = -2;
-            this.circularProgressBar2.Location = new System.Drawing.Point(3, 10);
-            this.circularProgressBar2.MarqueeAnimationSpeed = 2000;
-            this.circularProgressBar2.Name = "circularProgressBar2";
-            this.circularProgressBar2.OuterColor = System.Drawing.Color.White;
-            this.circularProgressBar2.OuterMargin = -10;
-            this.circularProgressBar2.OuterWidth = 10;
-            this.circularProgressBar2.ProgressColor = System.Drawing.Color.Lime;
-            this.circularProgressBar2.ProgressWidth = 10;
-            this.circularProgressBar2.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
-            this.circularProgressBar2.Size = new System.Drawing.Size(121, 115);
-            this.circularProgressBar2.StartAngle = 270;
-            this.circularProgressBar2.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.circularProgressBar2.SubscriptColor = System.Drawing.Color.Transparent;
-            this.circularProgressBar2.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
-            this.circularProgressBar2.SubscriptText = "";
-            this.circularProgressBar2.SuperscriptColor = System.Drawing.Color.Transparent;
-            this.circularProgressBar2.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
-            this.circularProgressBar2.SuperscriptText = "";
-            this.circularProgressBar2.TabIndex = 4;
-            this.circularProgressBar2.Text = "%75";
-            this.circularProgressBar2.TextMargin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.circularProgressBar2.Value = 75;
-            this.circularProgressBar2.Visible = false;
-            this.circularProgressBar2.Click += new System.EventHandler(this.circularProgressBar2_Click);
+            this.CText.AutoSize = true;
+            this.CText.Font = new System.Drawing.Font("Russo One", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CText.ForeColor = System.Drawing.Color.Black;
+            this.CText.Location = new System.Drawing.Point(50, 130);
+            this.CText.Name = "CText";
+            this.CText.Size = new System.Drawing.Size(23, 34);
+            this.CText.TabIndex = 1;
+            this.CText.Text = ":";
+            this.CText.Visible = false;
+            this.CText.Click += new System.EventHandler(this.label2_Click);
             // 
-            // label4
+            // CbarRam
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Black;
-            this.label4.Font = new System.Drawing.Font("Russo One", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(24, 128);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 34);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "CPU";
-            this.label4.Visible = false;
+            this.CbarRam.AnimationFunction = ((WinFormAnimation.AnimationFunctions.Function)(resources.GetObject("CbarRam.AnimationFunction")));
+            this.CbarRam.AnimationSpeed = 500;
+            this.CbarRam.BackColor = System.Drawing.Color.Black;
+            this.CbarRam.Font = new System.Drawing.Font("Russo One", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CbarRam.ForeColor = System.Drawing.Color.White;
+            this.CbarRam.InnerColor = System.Drawing.Color.Black;
+            this.CbarRam.InnerMargin = 2;
+            this.CbarRam.InnerWidth = -2;
+            this.CbarRam.Location = new System.Drawing.Point(187, 12);
+            this.CbarRam.MarqueeAnimationSpeed = 2000;
+            this.CbarRam.Name = "CbarRam";
+            this.CbarRam.OuterColor = System.Drawing.Color.White;
+            this.CbarRam.OuterMargin = -10;
+            this.CbarRam.OuterWidth = 10;
+            this.CbarRam.ProgressColor = System.Drawing.Color.Lime;
+            this.CbarRam.ProgressWidth = 10;
+            this.CbarRam.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
+            this.CbarRam.Size = new System.Drawing.Size(121, 115);
+            this.CbarRam.StartAngle = 270;
+            this.CbarRam.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.CbarRam.SubscriptColor = System.Drawing.Color.Transparent;
+            this.CbarRam.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
+            this.CbarRam.SubscriptText = "";
+            this.CbarRam.SuperscriptColor = System.Drawing.Color.Transparent;
+            this.CbarRam.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
+            this.CbarRam.SuperscriptText = "";
+            this.CbarRam.TabIndex = 4;
+            this.CbarRam.Text = "%75";
+            this.CbarRam.TextMargin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.CbarRam.Value = 75;
+            this.CbarRam.Visible = false;
+            this.CbarRam.Click += new System.EventHandler(this.circularProgressBar2_Click);
             // 
-            // label3
+            // Rtext
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Black;
-            this.label3.Font = new System.Drawing.Font("Russo One", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(155, 128);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 34);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "RAM";
-            this.label3.Visible = false;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.Rtext.AutoSize = true;
+            this.Rtext.Font = new System.Drawing.Font("Russo One", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rtext.ForeColor = System.Drawing.Color.Black;
+            this.Rtext.Location = new System.Drawing.Point(235, 130);
+            this.Rtext.Name = "Rtext";
+            this.Rtext.Size = new System.Drawing.Size(23, 34);
+            this.Rtext.TabIndex = 0;
+            this.Rtext.Text = ":";
+            this.Rtext.Visible = false;
             // 
-            // circularProgressBar1
+            // Clbl
             // 
-            this.circularProgressBar1.AnimationFunction = ((WinFormAnimation.AnimationFunctions.Function)(resources.GetObject("circularProgressBar1.AnimationFunction")));
-            this.circularProgressBar1.AnimationSpeed = 500;
-            this.circularProgressBar1.BackColor = System.Drawing.Color.Black;
-            this.circularProgressBar1.Font = new System.Drawing.Font("Russo One", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.circularProgressBar1.ForeColor = System.Drawing.Color.White;
-            this.circularProgressBar1.InnerColor = System.Drawing.Color.Black;
-            this.circularProgressBar1.InnerMargin = 2;
-            this.circularProgressBar1.InnerWidth = -2;
-            this.circularProgressBar1.Location = new System.Drawing.Point(139, 10);
-            this.circularProgressBar1.MarqueeAnimationSpeed = 2000;
-            this.circularProgressBar1.Name = "circularProgressBar1";
-            this.circularProgressBar1.OuterColor = System.Drawing.Color.White;
-            this.circularProgressBar1.OuterMargin = -10;
-            this.circularProgressBar1.OuterWidth = 10;
-            this.circularProgressBar1.ProgressColor = System.Drawing.Color.Lime;
-            this.circularProgressBar1.ProgressWidth = 10;
-            this.circularProgressBar1.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
-            this.circularProgressBar1.Size = new System.Drawing.Size(121, 115);
-            this.circularProgressBar1.StartAngle = 270;
-            this.circularProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.circularProgressBar1.SubscriptColor = System.Drawing.Color.Transparent;
-            this.circularProgressBar1.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
-            this.circularProgressBar1.SubscriptText = "";
-            this.circularProgressBar1.SuperscriptColor = System.Drawing.Color.Transparent;
-            this.circularProgressBar1.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
-            this.circularProgressBar1.SuperscriptText = "";
-            this.circularProgressBar1.TabIndex = 0;
-            this.circularProgressBar1.Text = "%75";
-            this.circularProgressBar1.TextMargin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.circularProgressBar1.Value = 75;
-            this.circularProgressBar1.Visible = false;
+            this.Clbl.AutoSize = true;
+            this.Clbl.BackColor = System.Drawing.Color.Black;
+            this.Clbl.Font = new System.Drawing.Font("Russo One", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Clbl.ForeColor = System.Drawing.Color.Black;
+            this.Clbl.Location = new System.Drawing.Point(24, 164);
+            this.Clbl.Name = "Clbl";
+            this.Clbl.Size = new System.Drawing.Size(76, 34);
+            this.Clbl.TabIndex = 2;
+            this.Clbl.Text = "CPU";
+            this.Clbl.Visible = false;
+            this.Clbl.Click += new System.EventHandler(this.label4_Click);
             // 
             // TransparentBorderlessForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(310, 173);
+            this.ClientSize = new System.Drawing.Size(329, 209);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -208,12 +209,12 @@
 
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panel1;
-        private CircularProgressBar.CircularProgressBar circularProgressBar1;
-        private CircularProgressBar.CircularProgressBar circularProgressBar2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
+        private CircularProgressBar.CircularProgressBar CbarCpu;
+        private CircularProgressBar.CircularProgressBar CbarRam;
+        private System.Windows.Forms.Label Rlbl;
+        private System.Windows.Forms.Label CText;
+        private System.Windows.Forms.Label Rtext;
+        private System.Windows.Forms.Label Clbl;
     }
 }
 

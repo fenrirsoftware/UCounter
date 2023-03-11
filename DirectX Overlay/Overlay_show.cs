@@ -102,19 +102,29 @@ namespace DirectX_Overlay
 
                 if (graphorlabel == true)
                 {
-                    circularProgressBar1.Visible = true;
-                   
-                    label3.Visible = true;
+                    CbarRam.Visible = true;
+                    Rlbl.Visible = true;
+
+                    Rtext.Visible = false;
+                    CbarCpu.Visible = false;
+                    CText.Visible = false;
+                    Rtext.Visible = false;
+
+
+                    
                     
 
                 }
                 else if (graphorlabel == false)
                 {
-                    circularProgressBar1.Visible =false;
-                    circularProgressBar2.Visible = false;
-                    label3.Visible = false;
-                    label4.Visible = false;
-                    label2.Visible = true;
+                    Rtext.Visible = true;
+
+                    CbarRam.Visible = false;
+                    Rlbl.Visible = false;
+                    Rtext.Visible = false;
+                    CbarCpu.Visible = false;
+                    CText.Visible = false;
+                   
 
                 }
 
@@ -127,21 +137,27 @@ namespace DirectX_Overlay
 
                 if (graphorlabel == true)
                 {
-                    circularProgressBar2.Visible = true;
+                    CbarCpu.Visible = true;
+                    Clbl.Visible = true;
 
-                    label4.Visible = true;
+                    Rtext.Visible = false;
+                    CbarRam.Visible = false;
+                    Rlbl.Visible = false;
+                    CText.Visible = false;
 
 
                 }
                 else if (graphorlabel == false)
                 {
-                    circularProgressBar1.Visible = false;
-                    circularProgressBar2.Visible = false;
-                    label3.Visible = false;
-                    label4.Visible = false;
-                    label2.Visible = false;
+                    CText.Visible = true;
 
-                    label1.Visible = true;
+                    CbarCpu.Visible = false;
+                    Clbl.Visible = false;
+                    Rtext.Visible = false;
+                    CbarRam.Visible = false;
+                    Rlbl.Visible = false;
+                  
+
 
                 }
 
@@ -153,23 +169,23 @@ namespace DirectX_Overlay
             {
                 if (graphorlabel == true)
                 {
-                    circularProgressBar2.Visible = true;
-                    circularProgressBar1.Visible = true;
-                    label4.Visible = true;
-                    label3.Visible = true;
+                    CbarRam.Visible = true;
+                    CbarCpu.Visible = true;
+                    Clbl.Visible = true;
+                    Rlbl.Visible = true;
 
 
                 }
                 else if (graphorlabel == false)
                 {
-                    circularProgressBar1.Visible = false;
-                    circularProgressBar2.Visible = false;
-                    label3.Visible = false;
-                    label4.Visible = false;
+                    CbarCpu.Visible = false;
+                    CbarRam.Visible = false;
+                    Rlbl.Visible = false;
+                    Clbl.Visible = false;
                   
 
-                    label1.Visible = true;
-                    label2.Visible = true;
+                    Rtext.Visible = true;
+                    CText.Visible = true;
 
                 }
             }
@@ -534,50 +550,50 @@ namespace DirectX_Overlay
         private void timer1_Tick(object sender, EventArgs e)
         {
               Rc();
-            label1.Text = Cpudeger.ToString();
-            label2.Text = Ramdeger.ToString();
+            Rtext.Text = Cpudeger.ToString();
+            CText.Text = Ramdeger.ToString();
 
-            circularProgressBar1.Value = Cpudeger;
-            circularProgressBar1.Text = Cpudeger.ToString();
+            CbarCpu.Value = Cpudeger;
+            CbarCpu.Text = Cpudeger.ToString();
 
-            circularProgressBar2.Value = Ramdeger;
-            circularProgressBar2.Text = Ramdeger.ToString();
+            CbarRam.Value = Ramdeger;
+            CbarRam.Text = Ramdeger.ToString();
 
 
             if (Cpudeger < 50)
             {
-                circularProgressBar1.ProgressColor = Color.Green;
+                CbarCpu.ProgressColor = Color.Green;
               
             }
 
             else if (Cpudeger > 51 && Cpudeger < 80)
             {
-                circularProgressBar1.ProgressColor = Color.Yellow;
+                CbarCpu.ProgressColor = Color.Yellow;
               
             }
 
             else if (Cpudeger > 81)
             {
-                circularProgressBar1.ProgressColor = Color.Red;
+                CbarCpu.ProgressColor = Color.Red;
               
             }
 
 
             if (Ramdeger < 50)
             {
-                circularProgressBar2.ProgressColor = Color.Green;
+                CbarRam.ProgressColor = Color.Green;
 
             }
 
             else if (Ramdeger > 51 && Ramdeger < 80)
             {
-                circularProgressBar2.ProgressColor = Color.Yellow;
+                CbarRam.ProgressColor = Color.Yellow;
 
             }
 
             else if (Ramdeger > 81)
             {
-                circularProgressBar2.ProgressColor = Color.Red;
+                CbarRam.ProgressColor = Color.Red;
 
             }
 
@@ -589,20 +605,20 @@ namespace DirectX_Overlay
 
             if (Cpudeger < 50)
             {
-                label1.ForeColor = Color.Green;
-                label4.ForeColor = Color.Green;
+                Rtext.ForeColor = Color.Green;
+                Clbl.ForeColor = Color.Green;
             }
 
             else if (Cpudeger >51 && Cpudeger<80)
             {
-                label1.ForeColor = Color.Yellow;
-                label4.ForeColor = Color.Yellow;
+                Rtext.ForeColor = Color.Yellow;
+                Clbl.ForeColor = Color.Yellow;
             }
 
            else if (Cpudeger > 81)
             {
-                label1.ForeColor = Color.Red;
-                label4.ForeColor = Color.Red;
+                Rtext.ForeColor = Color.Red;
+                Clbl.ForeColor = Color.Red;
             }
 
 
@@ -610,20 +626,20 @@ namespace DirectX_Overlay
 
             if (Ramdeger < 50)
             {
-                label3.ForeColor = Color.Green;
-                label2.ForeColor = Color.Green;
+                Rlbl.ForeColor = Color.Green;
+                CText.ForeColor = Color.Green;
             }
 
             else if (Ramdeger > 51 && Ramdeger < 80)
             {
-                label3.ForeColor = Color.Yellow;
-                label2.ForeColor = Color.Yellow;
+                Rlbl.ForeColor = Color.Yellow;
+                CText.ForeColor = Color.Yellow;
             }
 
             else if (Ramdeger > 81)
             {
-                label3.ForeColor = Color.Red;
-                label2.ForeColor = Color.Red;
+                Rlbl.ForeColor = Color.Red;
+                CText.ForeColor = Color.Red;
             }
 
         }
@@ -645,6 +661,11 @@ namespace DirectX_Overlay
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }
